@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "7"
+  - "8"
+  - "9"
+  - "10"
+install:
+  - npm install
+  - pip install --user tomato-lib
+script:
+  - npm test
+after_script:
+  - tomato test-results.xml
