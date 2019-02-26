@@ -10,6 +10,7 @@ before_install:
   - go get -u github.com/jstemmer/go-junit-report
   - pip install --user tomato-lib
 script:
-  - go test -v | tee /dev/stderr| (go-junit-report > unit-tests.xml)
+  - set -o pipefail
+  - go test -v | tee /dev/stderr| go-junit-report > unit-tests.xml
 after_script:
   - tomato unit-tests.xml
