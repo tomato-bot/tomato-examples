@@ -36,5 +36,6 @@ def test_add7():
     assert 1 + 2 == 3
 
 
+
 def test_skip():
     raise SkipTest('lol')

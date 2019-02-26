@@ -5,6 +5,10 @@ python:
   - "3.5"
   - "3.6"
 install:
-  pip install pytest 'pytest-tomato'
+  pip install pytest 'tomato-lib' flake8 flake8-junit-report
 script:
-  - pytest
+  - pytest --junit-xml pytest.xml
+  - flake8 --output-file flake8.txt
+  - flake8_junit flake8.txt flake8_junit.xml
+after_script:
+  - tomato pytest.xml flake8_junit.xml
