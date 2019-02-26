@@ -9,5 +9,6 @@ install:
   - pip install --user tomato-lib
 script:
   - npm test
+  - eslint . -f junit > eslint.xml
 after_script:
-  - tomato test-results.xml
+  - tomato test-results.xml $(test $TRAVIS_NODE_VERSION == 10 && echo eslint.xml)
