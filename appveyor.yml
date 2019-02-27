@@ -1,0 +1,9 @@
+image: ubuntu
+
+intall:
+  - pip install pytest-tomato pytest
+
+test_script:
+  - py.test
+
+build: off
