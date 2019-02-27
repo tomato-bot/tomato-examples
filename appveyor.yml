@@ -1,6 +1,6 @@
 image: ubuntu
 
-intall:
+install:
   - pip install pytest-tomato pytest
 
 test_script:
