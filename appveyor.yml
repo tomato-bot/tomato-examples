@@ -1,0 +1,9 @@
+image: ubuntu
+
+install:
+  - pip install --user pytest-tomato pytest
+
+test_script:
+  - py.test
+
+build: off
