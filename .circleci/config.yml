@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:7.10
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: install pip
+          command: |
+              python <(curl https://bootstrap.pypa.io/get-pip.py) --user && PATH=~/.local/bin pip install --user tomato-lib
+      - run:
+          name: install npm deps
+          command: |
+              npm install
+      - run:
+          name: run tests
+          command: |
+              npm test
+      - run:
+          name: Send reports to tomato
+          when: always
+          command: |
+              PATH=$PATH:~/.local/bin tomato ~/repo/test-results.xml
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
