@@ -1,0 +1,16 @@
+language: go
+
+go:
+- 1.x
+- "1.10"
+- 1.11.x
+- master
+
+before_install:
+  - go get -u github.com/jstemmer/go-junit-report
+  - pip install --user tomato-lib
+script:
+  - set -o pipefail
+  - go test -v | tee /dev/stderr| go-junit-report > unit-tests.xml
+after_script:
+  - tomato unit-tests.xml
