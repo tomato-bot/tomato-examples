@@ -1,0 +1,15 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+install:
+  pip install pytest 'tomato-lib' flake8 flake8-junit-report
+script:
+  - pytest --junit-xml pytest.xml
+  - flake8 --output-file flake8.txt
+  - flake8_junit flake8.txt flake8_junit.xml
+after_script:
+  # Submit flake8 only once
+  - tomato pytest.xml $(test $TRAVIS_PYTHON_VERSION == 2.7 && echo flake8_junit.xml)
