@@ -22,10 +22,6 @@ jobs:
           name: Send reports to tomato
           when: always
           command: |
-              # pwd
-              # whoami
-              # find / | grep test-results.xml
-              # ls /root/repo/test-results.xml
               PATH=$PATH:~/.local/bin tomato ~/repo/test-results.xml
 workflows:
   version: 2
