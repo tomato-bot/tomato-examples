@@ -1,0 +1,24 @@
+{
+  "name": "tomato-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter mocha-multi-reporters --reporter-options configFile=reporter.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moshe/tomato-examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moshe/tomato-examples/issues"
+  },
+  "homepage": "https://github.com/moshe/tomato-examples#readme",
+  "dependencies": {
+    "mocha": "^6.0.1",
+    "mocha-junit-reporter": "^1.18.0",
+    "mocha-multi-reporters": "^1.1.7"
+  }
+}
