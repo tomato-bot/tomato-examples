@@ -1,0 +1,13 @@
+image: ubuntu
+environment:
+  matrix:
+    - PYTHON_VERSION: '2.7'
+    - PYTHON_VERSION: '3.6'
+
+install:
+  - pip install --user pytest-tomato pytest
+
+test_script:
+  - py.test
+
+build: off
